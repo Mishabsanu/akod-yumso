@@ -14,8 +14,8 @@ export default function ProductShowcase() {
     <section id="products" className="scroll-mt-20 bg-cream py-20 text-ink sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-bold uppercase tracking-[0.2em] text-brand-dark">Our Snacks</p>
-          <h2 className="mt-2 font-display text-5xl tracking-wide sm:text-6xl">
+          <p className="font-bold uppercase tracking-[0.2em] text-brand-text">Our Snacks</p>
+          <h2 className="mt-2 font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
             Pick Your Crunch
           </h2>
           <p className="mt-4 text-ink/70">
@@ -24,12 +24,11 @@ export default function ProductShowcase() {
         </div>
 
         {/* Flavour tabs */}
-        <div className="mt-10 flex flex-wrap justify-center gap-3" role="tablist">
+        <div className="mt-10 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose a flavour">
           {products.map((item, i) => (
             <button
               key={item.id}
-              role="tab"
-              aria-selected={i === active}
+              aria-pressed={i === active}
               onClick={() => setActive(i)}
               className={`rounded-full border-2 border-ink px-5 py-2 text-sm font-bold transition ${
                 i === active
@@ -53,6 +52,7 @@ export default function ProductShowcase() {
               alt={`YUMSO ${p.name} ${p.flavor}`}
               width={660}
               height={600}
+              sizes="(min-width: 1024px) 448px, 90vw"
               className="animate-float w-full rounded-3xl border-4 border-ink shadow-2xl"
             />
           </div>
@@ -60,7 +60,7 @@ export default function ProductShowcase() {
             <span className={`inline-block rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest ${p.chip}`}>
               {p.badge}
             </span>
-            <h3 className="text-stroke mt-4 font-display text-6xl tracking-wide text-white sm:text-7xl">
+            <h3 className="text-stroke mt-4 font-display text-5xl tracking-wide text-white sm:text-6xl lg:text-7xl">
               {p.name}
             </h3>
             <p className="mt-1 font-display text-3xl tracking-wide">{p.flavor}</p>
@@ -101,7 +101,7 @@ export default function ProductShowcase() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[#25D366] px-7 py-3 font-bold text-white shadow-[0_5px_0_#0b0b0b] transition hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[#25D366] px-7 py-3 font-bold text-ink shadow-[0_5px_0_#0b0b0b] transition hover:-translate-y-0.5"
               >
                 <WhatsAppIcon /> Order on WhatsApp
               </a>
@@ -110,11 +110,11 @@ export default function ProductShowcase() {
         </div>
 
         {/* Grid of all products */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
           {products.map((item, i) => (
             <div
               key={item.id}
-              className="group overflow-hidden rounded-3xl border-4 border-ink bg-white shadow-[0_6px_0_#0b0b0b] transition hover:-translate-y-1"
+              className="group overflow-hidden rounded-2xl border-4 border-ink bg-white shadow-[0_6px_0_#0b0b0b] transition hover:-translate-y-1 sm:rounded-3xl"
             >
               <button
                 type="button"
@@ -130,24 +130,25 @@ export default function ProductShowcase() {
                     alt={`YUMSO ${item.name}`}
                     width={660}
                     height={600}
+                    sizes="(min-width: 1024px) 300px, 50vw"
                     className="aspect-[11/10] w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="px-5 pt-5">
-                  <h3 className="font-display text-3xl tracking-wide">{item.name}</h3>
-                  <p className="text-sm font-semibold text-ink/60">
+                <div className="px-3 pt-3 sm:px-5 sm:pt-5">
+                  <h3 className="font-display text-2xl tracking-wide sm:text-3xl">{item.name}</h3>
+                  <p className="text-xs font-semibold text-ink/60 sm:text-sm">
                     {item.flavor} · {item.weight}
                   </p>
                 </div>
               </button>
-              <div className="p-5 pt-4">
+              <div className="p-3 sm:p-5 sm:pt-4">
                 <a
                   href={waLink(`Hi YUMSO! 👋 I'd like to order ${item.name} (${item.flavor}) - ${item.weight}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-bold text-white transition hover:brightness-105"
+                  className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-3 py-2.5 text-xs font-bold text-ink transition hover:brightness-105 sm:text-sm"
                 >
-                  <WhatsAppIcon className="h-4 w-4" /> Order on WhatsApp
+                  <WhatsAppIcon className="h-4 w-4" /> Order<span className="hidden sm:inline"> on WhatsApp</span>
                 </a>
               </div>
             </div>

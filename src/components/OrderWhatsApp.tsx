@@ -35,7 +35,7 @@ export default function OrderWhatsApp() {
           <p className="inline-flex items-center gap-2 font-bold uppercase tracking-[0.2em] text-[#25D366]">
             <WhatsAppIcon /> Order on WhatsApp
           </p>
-          <h2 className="mt-2 font-display text-5xl tracking-wide sm:text-6xl">Build Your Snack Box</h2>
+          <h2 className="mt-2 font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">Build Your Snack Box</h2>
           <p className="mt-4 text-white/70">
             Choose your flavours and quantities, then send your order straight to us on WhatsApp.
           </p>
@@ -57,6 +57,7 @@ export default function OrderWhatsApp() {
                     alt={p.name}
                     width={660}
                     height={600}
+                    sizes="80px"
                     className={`h-20 w-20 shrink-0 rounded-2xl object-cover ${p.bg}`}
                   />
                   <div className="min-w-0 flex-1">
@@ -113,6 +114,7 @@ export default function OrderWhatsApp() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name (optional)"
+                aria-label="Your name"
                 className="w-full rounded-xl border-2 border-ink/20 px-4 py-2.5 text-sm focus:border-[#25D366] focus:outline-none"
               />
               <textarea
@@ -120,22 +122,28 @@ export default function OrderWhatsApp() {
                 onChange={(e) => setAddress(e.target.value)}
                 rows={2}
                 placeholder="Delivery address (optional)"
+                aria-label="Delivery address"
                 className="w-full rounded-xl border-2 border-ink/20 px-4 py-2.5 text-sm focus:border-[#25D366] focus:outline-none"
               />
             </div>
-            <a
-              href={items.length ? waLink(message) : undefined}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-disabled={items.length === 0}
-              className={`mt-5 flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 font-bold text-white transition ${
-                items.length
-                  ? "bg-[#25D366] shadow-[0_5px_0_#128C7E] hover:-translate-y-0.5"
-                  : "pointer-events-none bg-ink/20"
-              }`}
-            >
-              <WhatsAppIcon /> Send Order on WhatsApp
-            </a>
+            {items.length ? (
+              <a
+                href={waLink(message)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 font-bold text-ink shadow-[0_5px_0_#128C7E] transition hover:-translate-y-0.5"
+              >
+                <WhatsAppIcon /> Send Order on WhatsApp
+              </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="mt-5 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-ink/10 px-6 py-3.5 font-bold text-ink/60"
+              >
+                <WhatsAppIcon /> Send Order on WhatsApp
+              </button>
+            )}
           </div>
         </div>
       </div>

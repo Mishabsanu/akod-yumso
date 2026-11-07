@@ -16,7 +16,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6">
         <a href="#top" aria-label="YUMSO home" className="block h-14 w-28 overflow-hidden">
           <Image
@@ -24,12 +24,12 @@ export default function Navbar() {
             alt="YUMSO logo"
             width={794}
             height={600}
-            priority
+            sizes="112px"
             className="h-full w-full scale-125 object-cover"
           />
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -44,7 +44,7 @@ export default function Navbar() {
 
         <a
           href="#order"
-          className="hidden items-center gap-2 rounded-full bg-[#25D366] px-5 py-2 text-sm font-bold text-white shadow-[0_4px_0_#128C7E] transition hover:-translate-y-0.5 md:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-[#25D366] px-5 py-2 text-sm font-bold text-ink shadow-[0_4px_0_#128C7E] transition hover:-translate-y-0.5 lg:inline-flex"
         >
           <WhatsAppIcon className="h-4 w-4" /> Order Now
         </a>
@@ -52,7 +52,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="rounded-lg p-2 text-white md:hidden"
+          className="rounded-lg p-2 text-white lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
@@ -67,7 +67,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <ul className="space-y-1 border-t border-white/10 px-4 pb-4 pt-2 md:hidden">
+        <ul className="space-y-1 border-t border-white/10 px-4 pb-4 pt-2 lg:hidden">
           {links.map((l) => (
             <li key={l.href}>
               <a

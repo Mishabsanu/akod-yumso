@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import ProductShowcase from "@/components/ProductShowcase";
 import ContactForm from "@/components/ContactForm";
 import OrderWhatsApp from "@/components/OrderWhatsApp";
+import StructuredData from "@/components/StructuredData";
 import { waLink, WhatsAppIcon, WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const features = [
@@ -17,20 +18,19 @@ const marquee = ["Classic Chips", "Hot & Spicy Nachos", "Cheese Puff", "Sea Salt
 export default function Home() {
   return (
     <div id="top">
+      <StructuredData />
       <Navbar />
 
       <main>
         {/* HERO */}
-        <section className="relative overflow-hidden">
-          <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-brand/25 blur-3xl" />
-          <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-nachos/25 blur-3xl" />
+        <section className="relative overflow-hidden bg-[radial-gradient(circle_at_8%_25%,rgba(253,185,19,0.2),transparent_35%),radial-gradient(circle_at_95%_90%,rgba(214,35,30,0.22),transparent_35%)]">
 
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand">
                 🍁 Real ingredients · Great taste
               </span>
-              <h1 className="mt-6 font-display text-6xl leading-[0.95] tracking-wide sm:text-7xl lg:text-8xl">
+              <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-wide min-[400px]:text-6xl sm:text-7xl lg:text-8xl">
                 Bigger Crunch.
                 <br />
                 <span className="text-brand">Better Fun.</span>
@@ -48,7 +48,7 @@ export default function Home() {
                 </a>
                 <a
                   href="#order"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 font-bold text-white shadow-[0_5px_0_#128C7E] transition hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 font-bold text-ink shadow-[0_5px_0_#128C7E] transition hover:-translate-y-0.5"
                 >
                   <WhatsAppIcon /> Order on WhatsApp
                 </a>
@@ -67,7 +67,9 @@ export default function Home() {
                 alt="The YUMSO range: Classic Chips, Nachos, Cheese Puff and Sea Salt Popcorn"
                 width={1312}
                 height={1199}
-                priority
+                preload
+                fetchPriority="high"
+                sizes="(min-width: 1280px) 600px, (min-width: 1024px) 48vw, 100vw"
                 className="relative rounded-[2rem] border-4 border-ink shadow-2xl"
               />
             </div>
@@ -94,7 +96,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mx-auto max-w-2xl text-center">
               <p className="font-bold uppercase tracking-[0.2em] text-brand">Why YUMSO</p>
-              <h2 className="mt-2 font-display text-5xl tracking-wide sm:text-6xl">
+              <h2 className="mt-2 font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
                 Snacking, Done Right
               </h2>
             </div>
@@ -124,12 +126,13 @@ export default function Home() {
                 alt="YUMSO logo"
                 width={796}
                 height={600}
+                sizes="(min-width: 1024px) 600px, 100vw"
                 className="w-full scale-[1.02]"
               />
             </div>
             <div>
-              <p className="font-bold uppercase tracking-[0.2em] text-brand-dark">Our Story</p>
-              <h2 className="mt-2 font-display text-5xl tracking-wide sm:text-6xl">
+              <p className="font-bold uppercase tracking-[0.2em] text-brand-text">Our Story</p>
+              <h2 className="mt-2 font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
                 Born to Make You Say &ldquo;Yum, So Good!&rdquo;
               </h2>
               <p className="mt-6 leading-relaxed text-ink/70">
@@ -148,7 +151,7 @@ export default function Home() {
                   ["🍁", "Made in Canada"],
                 ].map(([n, l]) => (
                   <div key={l} className="rounded-2xl bg-cream p-4">
-                    <p className="font-display text-4xl text-brand-dark">{n}</p>
+                    <p className="font-display text-4xl text-brand-text">{n}</p>
                     <p className="text-xs font-semibold uppercase tracking-wide text-ink/60">{l}</p>
                   </div>
                 ))}
@@ -162,7 +165,7 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
               <p className="font-bold uppercase tracking-[0.2em]">Get in Touch</p>
-              <h2 className="mt-2 font-display text-5xl tracking-wide sm:text-6xl">
+              <h2 className="mt-2 font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
                 Want YUMSO on Your Shelves?
               </h2>
               <p className="mt-6 max-w-md text-ink/80">
@@ -195,7 +198,7 @@ export default function Home() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Order on WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl ring-4 ring-white/20 transition hover:scale-110"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-ink shadow-xl ring-4 ring-white/20 transition hover:scale-110"
       >
         <WhatsAppIcon className="h-8 w-8" />
       </a>
@@ -209,6 +212,7 @@ export default function Home() {
               alt="YUMSO logo"
               width={794}
               height={600}
+              sizes="128px"
               className="h-full w-full scale-125 object-cover"
             />
           </div>

@@ -27,10 +27,10 @@ export default function ContactForm() {
       className="space-y-4 rounded-3xl border-4 border-ink bg-white p-6 text-ink shadow-[0_8px_0_#0b0b0b] sm:p-8"
     >
       <div className="grid gap-4 sm:grid-cols-2">
-        <input required name="name" placeholder="Your name" className={input} />
-        <input required type="email" name="email" placeholder="Email address" className={input} />
+        <input required name="name" aria-label="Your name" placeholder="Your name" className={input} />
+        <input required type="email" name="email" aria-label="Email address" placeholder="Email address" className={input} />
       </div>
-      <select name="topic" className={input} defaultValue="">
+      <select name="topic" aria-label="Topic" className={input} defaultValue="">
         <option value="" disabled>
           I&apos;m interested in…
         </option>
@@ -38,7 +38,7 @@ export default function ContactForm() {
         <option>Bulk & event orders</option>
         <option>General question</option>
       </select>
-      <textarea required name="message" rows={4} placeholder="Your message" className={input} />
+      <textarea required name="message" aria-label="Your message" rows={4} placeholder="Your message" className={input} />
       <button
         type="submit"
         className="w-full rounded-full border-2 border-ink bg-brand px-6 py-3 font-bold text-ink shadow-[0_5px_0_#0b0b0b] transition hover:-translate-y-0.5"
