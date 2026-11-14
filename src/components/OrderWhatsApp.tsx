@@ -31,7 +31,7 @@ export default function OrderWhatsApp() {
   return (
     <section id="order" className="scroll-mt-20 bg-[#0f2a1a] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <div data-reveal className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-2 font-bold uppercase tracking-[0.2em] text-[#25D366]">
             <WhatsAppIcon /> Order on WhatsApp
           </p>

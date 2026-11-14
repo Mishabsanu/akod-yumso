@@ -13,7 +13,7 @@ export default function ProductShowcase() {
   return (
     <section id="products" className="scroll-mt-20 bg-cream py-20 text-ink sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <div data-reveal className="mx-auto max-w-2xl text-center">
           <p className="font-bold uppercase tracking-[0.2em] text-brand-text">Our Snacks</p>
           <h2 className="mt-2 font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
             Pick Your Crunch
@@ -43,6 +43,7 @@ export default function ProductShowcase() {
 
         {/* Featured product */}
         <div
+          data-reveal
           className={`mt-10 grid items-center gap-8 overflow-hidden rounded-[2rem] border-4 border-ink p-6 shadow-[0_10px_0_#0b0b0b] transition-colors duration-500 sm:p-10 lg:grid-cols-2 ${p.bg}`}
         >
           <div className="relative mx-auto w-full max-w-md">

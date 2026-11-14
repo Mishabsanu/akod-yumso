@@ -5,6 +5,7 @@ import { useState } from "react";
 import { WhatsAppIcon } from "@/lib/whatsapp";
 
 const links = [
+  { href: "#store", label: "3D Store" },
   { href: "#products", label: "Products" },
   { href: "#order", label: "Order" },
   { href: "#why", label: "Why YUMSO" },

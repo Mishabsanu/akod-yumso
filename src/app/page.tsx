@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import ScrollHero from "@/components/ScrollHero";
+import StoreSection from "@/components/store/StoreSection";
+import RevealObserver from "@/components/RevealObserver";
 import ProductShowcase from "@/components/ProductShowcase";
 import ContactForm from "@/components/ContactForm";
 import OrderWhatsApp from "@/components/OrderWhatsApp";
@@ -19,62 +22,15 @@ export default function Home() {
   return (
     <div id="top">
       <StructuredData />
+      <RevealObserver />
       <Navbar />
 
       <main>
         {/* HERO */}
-        <section className="relative overflow-hidden bg-[radial-gradient(circle_at_8%_25%,rgba(253,185,19,0.2),transparent_35%),radial-gradient(circle_at_95%_90%,rgba(214,35,30,0.22),transparent_35%)]">
+        <ScrollHero />
 
-          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand">
-                🍁 Real ingredients · Great taste
-              </span>
-              <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-wide min-[400px]:text-6xl sm:text-7xl lg:text-8xl">
-                Bigger Crunch.
-                <br />
-                <span className="text-brand">Better Fun.</span>
-              </h1>
-              <p className="mt-6 max-w-lg text-lg text-white/70">
-                Meet YUMSO, the snack crew that turns every moment into a party. Crispy chips,
-                fiery nachos, cheesy puffs and fluffy popcorn, all made in Canada.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#products"
-                  className="rounded-full bg-brand px-7 py-3.5 font-bold text-ink shadow-[0_5px_0_#a67800] transition hover:-translate-y-0.5"
-                >
-                  Explore Flavours
-                </a>
-                <a
-                  href="#order"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 font-bold text-ink shadow-[0_5px_0_#128C7E] transition hover:-translate-y-0.5"
-                >
-                  <WhatsAppIcon /> Order on WhatsApp
-                </a>
-              </div>
-              <div className="mt-10 flex gap-3">
-                {["bg-chips", "bg-nachos", "bg-puff", "bg-popcorn"].map((c) => (
-                  <span key={c} className={`h-3 w-10 rounded-full ${c}`} />
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 -rotate-3 rounded-[2rem] bg-brand" />
-              <Image
-                src="/lineup.jpeg"
-                alt="The YUMSO range: Classic Chips, Nachos, Cheese Puff and Sea Salt Popcorn"
-                width={1312}
-                height={1199}
-                preload
-                fetchPriority="high"
-                sizes="(min-width: 1280px) 600px, (min-width: 1024px) 48vw, 100vw"
-                className="relative rounded-[2rem] border-4 border-ink shadow-2xl"
-              />
-            </div>
-          </div>
-        </section>
+        {/* 3D STORE */}
+        <StoreSection />
 
         {/* MARQUEE */}
         <div className="overflow-hidden border-y-4 border-ink bg-brand py-4 text-ink">
@@ -94,7 +50,7 @@ export default function Home() {
         {/* WHY */}
         <section id="why" className="scroll-mt-20 py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mx-auto max-w-2xl text-center">
+            <div data-reveal className="mx-auto max-w-2xl text-center">
               <p className="font-bold uppercase tracking-[0.2em] text-brand">Why YUMSO</p>
               <h2 className="mt-2 font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
                 Snacking, Done Right
@@ -104,6 +60,7 @@ export default function Home() {
               {features.map((f) => (
                 <div
                   key={f.title}
+                  data-reveal
                   className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 transition hover:-translate-y-1 hover:border-brand/60"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand text-3xl">
@@ -120,7 +77,7 @@ export default function Home() {
         {/* ABOUT */}
         <section id="about" className="scroll-mt-20 bg-white py-20 text-ink sm:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-[2rem] border-4 border-ink shadow-[0_10px_0_#0b0b0b]">
+            <div data-reveal className="overflow-hidden rounded-[2rem] border-4 border-ink shadow-[0_10px_0_#0b0b0b]">
               <Image
                 src="/logo.jpeg"
                 alt="YUMSO logo"
